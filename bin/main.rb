@@ -5,10 +5,23 @@ puts ''
 puts ''
 puts 'Welcome to TikTakTow v1.0'
 puts ''
+
 print 'Player "X" name : '
 player_x = gets.chomp
+puts ''
 print 'Player "O" name : ' # Player.new("name2",1)
 player_o = gets.chomp
+puts ''
+
+while player_x.nil? || player_o.nil? || player_x == player_o
+  print 'Please Change your names'
+  puts ''
+  print 'Player "X" name : '
+  player_x = gets.chomp
+  puts ''
+  print 'Player "O" name : ' # Player.new("name2",1)
+  player_o = gets.chomp
+end
 puts ''
 
 ### instruction
@@ -25,6 +38,7 @@ puts '***************'
 puts ''
 
 ### game flow
+is_game_finished = false
 
 until is_game_finished
 
