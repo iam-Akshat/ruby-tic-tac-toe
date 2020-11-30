@@ -6,7 +6,7 @@ puts ''
 puts 'Welcome to TikTakTow v1.0'
 puts ''
 print 'Player "X" name : '
-player_x = gets.chomp # Player.new("name1",0)   0=O 1=X
+player_x = gets.chomp
 print 'Player "O" name : ' # Player.new("name2",1)
 player_o = gets.chomp
 puts ''
@@ -26,12 +26,8 @@ puts ''
 
 ### game flow
 
-is_game_finished = false # Game.is_game_finished from Game class
-# new_game = Game.new("player 1","player 2")
-# class Game initialize(player_1,player_2)
-# Game.is_game_finished=false default value
 until is_game_finished
-  # current_player = Game.current_player
+
   print "#{player_x}\'s turn : "
   player_ip = gets.chomp # get player turn
   puts "#{player_x} plays #{player_ip}"
@@ -46,13 +42,10 @@ until is_game_finished
   puts '| |7| |8| |9| |'
   puts '***************'
   puts ''
-  is_game_finished = true
   puts 'checks is valid move'
   puts 'Checks if someone won or draw - if draw end game'
+
   # Game.check_did_win
-  # if(Game.check_did_win)
-  #     Game.winner_message()
-  # end
   puts 'no one won,continue game'
   puts ''
   print "#{player_o}\'s turn : "
@@ -70,10 +63,4 @@ until is_game_finished
   puts 'checks is valid move'
   puts 'Checks if someone won or draw - if draw end game'
   puts 'Someone won ,stop game show win message'
-
-  # Check for winner logic :
-  # for x in 'a'..'c' do
-  #     puts Regexp.new("((?=.*#{x})(?=.*#{x})(?=.*#{x}))")
-  # end
-
 end
