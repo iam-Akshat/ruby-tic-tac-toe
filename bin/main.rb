@@ -1,28 +1,26 @@
 #!/usr/bin/env ruby
-
+def get_name(which_player)
+  puts "Please enter Player #{which_player} name"
+  name = gets.chomp.strip
+  while name.empty?
+    puts 'Please enter a valid name'
+    name = gets.chomp.strip
+  end
+  name
+end
 ### Welconme
-puts ''
 puts ''
 puts 'Welcome to TikTakTow v1.0'
 puts ''
 
-print 'Player "X" name : '
-player_x = gets.chomp
+player_x = get_name('X')
 puts ''
-print 'Player "O" name : ' # Player.new("name2",1)
-player_o = gets.chomp
+player_o = get_name('O')
 puts ''
-
-while player_x.nil? || player_o.nil? || player_x == player_o
-  print 'Please Change your names'
-  puts ''
-  print 'Player "X" name : '
-  player_x = gets.chomp
-  puts ''
-  print 'Player "O" name : ' # Player.new("name2",1)
-  player_o = gets.chomp
+while player_x == player_o
+  puts "Both names cant be same \n Please write different name for O"
+  player_o = get_name('O')
 end
-puts ''
 
 ### instruction
 puts 'How to play ?'
@@ -77,4 +75,5 @@ until is_game_finished
   puts 'checks is valid move'
   puts 'Checks if someone won or draw - if draw end game'
   puts 'Someone won ,stop game show win message'
+  is_game_finished = true
 end
