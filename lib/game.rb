@@ -17,6 +17,10 @@ class Game
     @win_message_holder = ''
   end
 
+  def show_board
+    @board.print_board
+  end
+
   def current_turn
     if @board.x_turn
       "#{@x_player}'s turn for X"

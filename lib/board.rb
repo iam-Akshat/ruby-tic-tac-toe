@@ -12,41 +12,32 @@ class Board
   def play_turn(pos)
     return false unless vaild?(pos)
 
-    # puts "check 1"
     coords = pos_to_coords(pos)
     return false if taken?(coords)
 
     if @x_turn
       set_turn(coords, 'X')
       @player_x_turns.push(pos)
-      # p @player_x_turns
       check_winner(@player_x_turns)
     else
       set_turn(coords, 'O')
       @player_o_turns.push(pos)
-      # p @player_o_turns
       check_winner(@player_o_turns)
     end
-
     toggle_turn
-    print_board
     true
+  end
+
+  def print_board
+    "\n" + "_Current Board_\n" + "| |#{@board[0][0]}| |#{@board[0][1]}| |#{@board[0][2]}| |\n"\
+    "***************\n" + "| |#{@board[1][0]}| |#{@board[1][1]}| |#{@board[1][2]}| |\n"\
+    "***************\n" + "| |#{@board[2][0]}| |#{@board[2][1]}| |#{@board[2][2]}| |\n"
   end
 
   private
 
   def toggle_turn
     @x_turn = !@x_turn
-  end
-
-  def print_board
-    puts ''
-    puts '_Current Board_'
-    @board.each do |x|
-      puts "| |#{x[0]}| |#{x[1]}| |#{x[2]}| |"
-      puts '***************'
-    end
-    puts ''
   end
 
   def vaild?(num)

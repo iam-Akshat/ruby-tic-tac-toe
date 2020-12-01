@@ -2,6 +2,16 @@
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
+def get_name(which_player)
+  puts "Please enter Player #{which_player} name"
+  name = gets.chomp.strip
+  while name.empty? || /\d+$/.match?(name)
+    puts 'Please enter a valid name'
+    name = gets.chomp.strip
+  end
+  name
+end
+
 puts ''
 puts 'Welcome to TikTakTow v1.0'
 puts ''
@@ -37,10 +47,11 @@ puts ''
 my_game = Game.new(player_x, player_o)
 
 until my_game.game_finished
+  puts my_game.show_board
   puts my_game.current_turn
   player_input = gets.chomp.to_i
   until my_game.play(player_input)
-    puts ''
+    puts my_game.show_board
     puts 'Choose a valid move, write a non reserved number between 1 <=> 9 '
     puts ''
     puts my_game.current_turn

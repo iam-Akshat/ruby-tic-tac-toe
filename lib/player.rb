@@ -19,13 +19,3 @@ class Player
             end
   end
 end
-
-def get_name(which_player)
-  puts "Please enter Player #{which_player} name"
-  name = gets.chomp.strip
-  while name.empty? || /\d+$/.match?(name)
-    puts 'Please enter a valid name'
-    name = gets.chomp.strip
-  end
-  name
-end
