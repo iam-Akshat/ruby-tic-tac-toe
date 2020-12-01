@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 def get_name(which_player)
   puts "Please enter Player #{which_player} name"
   name = gets.chomp.strip
@@ -8,6 +9,7 @@ def get_name(which_player)
   end
   name
 end
+
 ### Welconme
 puts ''
 puts 'Welcome to TikTakTow v1.0'
