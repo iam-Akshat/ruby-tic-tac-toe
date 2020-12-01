@@ -46,7 +46,6 @@ class Board
 
   def taken?(coord)
     ele = @board[coord[0]][coord[1]]
-    # puts ele.inspect
     return true if ele.is_a?(String)
 
     false
@@ -75,7 +74,6 @@ class Board
     false
   end
 
-  # sets 'X' or 'O' in desired board location
   def set_turn(coords, role)
     @board[coords[0]][coords[1]] = role
   end
