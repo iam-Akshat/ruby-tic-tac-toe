@@ -32,5 +32,20 @@ describe Game do
       new_game.play(6)
       expect(new_game.game_finished).to eql(true)
     end
+    it 'sets value of #did_someone_win to true when someone wins' do
+      new_game.play(1)
+      new_game.play(4)
+      new_game.play(2)
+      new_game.play(5)
+      new_game.play(3)
+      expect(new_game.did_someone_win).to eql(true)
+    end
+  end
+  describe '#current_turn' do
+    it 'alternates between player turns' do
+      prev_turn = new_game.current_turn.reverse[0]
+      new_game.play(1)
+      expect(new_game.current_turn.reverse[0]).to_not eql(prev_turn)
+    end
   end
 end
